@@ -12,9 +12,6 @@ const Layout = ({ children, seo }) => (
           seo {
             metaTitle
             metaDescription
-            shareImage {
-              url
-            }
           }
         }
       }

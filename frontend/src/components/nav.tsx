@@ -39,9 +39,14 @@ const Nav = () => (
               <div uk-dropdown="animation: uk-animation-slide-top-small; duration: 1000">
                 <ul className="uk-nav uk-dropdown-nav">
                   {data.allStrapiCategory.edges.map((category, i) => (
-                    <li key={`category__${category.node.slug}`}>
-                      <Link to={`/category/${category.node.slug}`}>
-                        {category.node.name}
+                    // <li key={`category__${category.node.slug}`}>
+                    //   <Link to={`/category/${category.node.slug}`}>
+                    //     {category.node.name}
+                    //   </Link>
+                    // </li>
+                    <li>
+                      <Link to={'/'}>
+                        Link
                       </Link>
                     </li>
                   ))}

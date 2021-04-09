@@ -1,1 +1,1 @@
-{"data":{"strapiGlobal":{"siteName":"Strapi Blog"},"allStrapiCategory":{"edges":[{"node":{"slug":"news","name":"news"}},{"node":{"slug":"nature","name":"nature"}},{"node":{"slug":"food","name":"food"}},{"node":{"slug":"story","name":"story"}},{"node":{"slug":"tech","name":"tech"}}]}}}
+{"data":{"strapiGlobal":{"siteName":"Strapi Blog"},"allStrapiCategory":{"edges":[{"node":{"slug":"food","name":"food"}}]}}}
