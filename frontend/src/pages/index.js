@@ -29,7 +29,7 @@ const query = graphql`
         metaTitle
         metaDescription
         shareImage {
-          publicURL
+          url
         }
       }
     }
@@ -39,26 +39,6 @@ const query = graphql`
           strapiId
           slug
           title
-          category {
-            name
-          }
-          image {
-            childImageSharp {
-              fixed(width: 800, height: 500) {
-                src
-              }
-            }
-          }
-          author {
-            name
-            picture {
-              childImageSharp {
-                fixed(width: 30, height: 30) {
-                  src
-                }
-              }
-            }
-          }
         }
       }
     }

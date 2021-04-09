@@ -13,24 +13,7 @@ export const query = graphql`
       description
       content
       publishedAt
-      image {
-        publicURL
-        childImageSharp {
-          fixed {
-            src
-          }
-        }
-      }
-      author {
-        name
-        picture {
-          childImageSharp {
-            fixed(width: 30, height: 30) {
-              src
-            }
-          }
-        }
-      }
+
     }
   }
 `;
@@ -40,20 +23,19 @@ const Article = ({ data }) => {
   const seo = {
     metaTitle: article.title,
     metaDescription: article.description,
-    shareImage: article.image,
     article: true,
   };
 
   return (
     <Layout seo={seo}>
       <div>
-        <div
+        {/* <div
           id="banner"
           className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
           data-src={article.image.publicURL}
           data-srcset={article.image.publicURL}
           data-uk-img
-        >
+        > */}
           <h1>{article.title}</h1>
         </div>
 
@@ -65,16 +47,16 @@ const Article = ({ data }) => {
 
             <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
               <div>
-                {article.author.picture && (
+                {/* {article.author.picture && (
                   <Img
                     fixed={article.author.picture.childImageSharp.fixed}
                     imgStyle={{ position: "static", borderRadius: "50%" }}
                   />
-                )}
+                )} */}
               </div>
               <div className="uk-width-expand">
                 <p className="uk-margin-remove-bottom">
-                  By {article.author.name}
+                  {/* By {article.author.name} */}
                 </p>
                 <p className="uk-text-meta uk-margin-remove-top">
                   <Moment format="MMM Do YYYY">{article.published_at}</Moment>
@@ -83,7 +65,7 @@ const Article = ({ data }) => {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </Layout>
   );
 };
