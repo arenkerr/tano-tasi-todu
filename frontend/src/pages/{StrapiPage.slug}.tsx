@@ -10,6 +10,13 @@ export const query = graphql`
     strapiPage(slug: {eq: $slug}) {
       hero {
         title
+        cover {
+          formats {
+            large {
+              url
+            }
+          }
+        }
       }
       content {
         body
@@ -28,15 +35,16 @@ const Page = ({data}) => {
   console.log({data})
   return (
     <Layout seo={seo}>
-        {/* <div
-          id="banner"
-          className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
-          data-src={article.image.publicURL}
-          data-srcset={article.image.publicURL}
-          data-uk-img
-        > */}
-      <div className="uk-container uk-container-large">
+      <div
+        id="banner"
+        className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
+        data-src={page.hero.cover.formats.large.url}
+        data-srcset={page.hero.cover.formats.large.url}
+        data-uk-img
+      >
         <h1>{page.hero.title}</h1>
+      </div>
+      <div className="uk-container uk-container-large">
         <Markdown source={page.content.body} escapeHtml={false} />
       </div>
     </Layout>

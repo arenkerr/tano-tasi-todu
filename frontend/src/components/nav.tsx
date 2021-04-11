@@ -8,15 +8,13 @@ const Nav = () => (
         strapiGlobal {
           siteName
         }
-        allStrapiPage(filter: {settings: {menu: {eq: true}}}) {
+        allStrapiPage(filter: {menu: {eq: true}}) {
           edges {
             node {
               hero {
                 title
               }
-              settings {
-                slug
-              }
+              slug
             }
           }
         }
@@ -44,7 +42,7 @@ const Nav = () => (
                 <ul className="uk-nav uk-dropdown-nav">
                   {data.allStrapiPage.edges.map(page => (
                     <li key={`page__${page.node.hero.title}`}>
-                        <Link to={page.node.settings.slug}>
+                        <Link to={page.node.slug}>
                           {page.node.hero.title} 
                         </Link>
                     </li>
