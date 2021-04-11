@@ -8,11 +8,15 @@ const Nav = () => (
         strapiGlobal {
           siteName
         }
-        allStrapiCategory {
+        allStrapiPage(filter: {settings: {menu: {eq: true}}}) {
           edges {
             node {
-              slug
-              name
+              hero {
+                title
+              }
+              settings {
+                slug
+              }
             }
           }
         }
@@ -34,20 +38,15 @@ const Nav = () => (
                 className="uk-button uk-button-default uk-margin-right"
                 type="button"
               >
-                Categories
+                Pages
               </button>
               <div uk-dropdown="animation: uk-animation-slide-top-small; duration: 1000">
                 <ul className="uk-nav uk-dropdown-nav">
-                  {data.allStrapiCategory.edges.map((category, i) => (
-                    // <li key={`category__${category.node.slug}`}>
-                    //   <Link to={`/category/${category.node.slug}`}>
-                    //     {category.node.name}
-                    //   </Link>
-                    // </li>
-                    <li>
-                      <Link to={'/'}>
-                        Link
-                      </Link>
+                  {data.allStrapiPage.edges.map(page => (
+                    <li key={`page__${page.node.hero.title}`}>
+                        <Link to={page.node.settings.slug}>
+                          {page.node.hero.title} 
+                        </Link>
                     </li>
                   ))}
                 </ul>

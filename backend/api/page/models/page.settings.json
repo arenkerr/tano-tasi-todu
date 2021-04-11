@@ -1,8 +1,8 @@
 {
-  "kind": "singleType",
-  "collectionName": "abouts",
+  "kind": "collectionType",
+  "collectionName": "pages",
   "info": {
-    "name": "About",
+    "name": "Page",
     "description": ""
   },
   "options": {
@@ -20,6 +20,17 @@
       "type": "component",
       "repeatable": false,
       "component": "sections.hero"
+    },
+    "content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.content"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "menu": {
+      "type": "boolean"
     }
   }
 }
