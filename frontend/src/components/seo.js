@@ -55,7 +55,7 @@ const SEO = ({ seo = {} }) => {
       link={[
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css?family=Staatliches",
+          href: "https://fonts.googleapis.com/css2?family=Catamaran:wght@700;900&display=swap",
         },
         {
           rel: "stylesheet",

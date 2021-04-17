@@ -11,11 +11,7 @@ export const query = graphql`
       hero {
         title
         cover {
-          formats {
-            large {
-              url
-            }
-          }
+          url
         }
       }
       content {
@@ -36,10 +32,10 @@ const Page = ({data}) => {
   return (
     <Layout seo={seo}>
       <div
-        id="banner"
-        className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
-        data-src={page.hero.cover.formats.large.url}
-        data-srcset={page.hero.cover.formats.large.url}
+        className="uk-height-large uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
+        uk-parallax="bgy: -600"
+        data-src={page.hero.cover.url}
+        data-srcset={page.hero.cover.url}
         data-uk-img
       >
         <h1>{page.hero.title}</h1>

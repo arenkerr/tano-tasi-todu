@@ -3,8 +3,10 @@ a {
 }
 
 h1 {
-  font-family: Staatliches !important;
-  font-size: 120px !important;
+  font-family: 'Catamaran' !important;
+  font-size: 72px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
 }
 
 #category {
@@ -32,7 +34,7 @@ h1 {
 
 .uk-navbar-container {
   background: #fff !important;
-  font-family: Staatliches !important;
+  font-family: 'Catamaran', sans-serif !important;
 }
 
 img:hover {
