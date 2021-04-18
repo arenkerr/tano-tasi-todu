@@ -55,13 +55,17 @@ const SEO = ({ seo = {} }) => {
       link={[
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Catamaran:wght@700;900&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap",
         },
         {
           rel: "stylesheet",
-          href:
-            "https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/css/uikit.min.css",
+          href: "https://fonts.googleapis.com/css2?family=Catamaran:wght@700;900&display=swap",
         },
+        // {
+        //   rel: "stylesheet",
+        //   href:
+        //     "https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/css/uikit.min.css",
+        // },
       ]}
       script={[
         {
