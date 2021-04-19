@@ -32,6 +32,18 @@ const theme = createMuiTheme({
       fontSize: 72,
       fontWeight: 900,
       textTransform: 'uppercase'
+    },
+    h5: {
+      fontFamily: 'Catamaran',
+      fontSize: 18,
+      fontWeight: 700,
+    },
+    h6: {
+      fontFamily: 'Catamaran',
+      fontSize: 16,
+      fontWeight: 200,
+      textTransform: 'uppercase',
+      letterSpacing: 1
     }
   },
 });

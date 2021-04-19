@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const SEO = ({ seo = {} }) => {
   const { strapiGlobal } = useStaticQuery(query);
@@ -16,11 +16,11 @@ const SEO = ({ seo = {} }) => {
     if (fullSeo.metaTitle) {
       tags.push(
         {
-          property: "og:title",
+          property: 'og:title',
           content: fullSeo.metaTitle,
         },
         {
-          name: "twitter:title",
+          name: 'twitter:title',
           content: fullSeo.metaTitle,
         }
       );
@@ -28,20 +28,20 @@ const SEO = ({ seo = {} }) => {
     if (fullSeo.metaDescription) {
       tags.push(
         {
-          name: "description",
+          name: 'description',
           content: fullSeo.metaDescription,
         },
         {
-          property: "og:description",
+          property: 'og:description',
           content: fullSeo.metaDescription,
         },
         {
-          name: "twitter:description",
+          name: 'twitter:description',
           content: fullSeo.metaDescription,
         }
       );
     }
-    tags.push({ name: "twitter:card", content: "summary_large_image" });
+    tags.push({ name: 'twitter:card', content: 'summary_large_image' });
 
     return tags;
   };
@@ -54,30 +54,30 @@ const SEO = ({ seo = {} }) => {
       titleTemplate={`%s | ${siteName}`}
       link={[
         {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap",
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap',
         },
         {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Catamaran:wght@700;900&display=swap",
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Catamaran:wght@200;700;900&display=swap',
         },
         // {
-        //   rel: "stylesheet",
+        //   rel: 'stylesheet',
         //   href:
-        //     "https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/css/uikit.min.css",
+        //     'https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/css/uikit.min.css',
         // },
       ]}
       script={[
         {
           src:
-            "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js",
+            'https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js',
         },
         {
           src:
-            "https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js",
+            'https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js',
         },
         {
-          src: "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.js",
+          src: 'https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.js',
         },
       ]}
       meta={metaTags}
