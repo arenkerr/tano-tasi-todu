@@ -1,15 +1,19 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 
 import Layout from '../components/layout';
+import HomeHero from '../components/homeHero';
 
 const IndexPage = () => {
   const data = useStaticQuery(query);
-
+  console.log(data.strapiHomepage)
   return (
     <Layout seo={data.strapiHomepage.seo}>
-      <Typography variant='h1' color='textPrimary'>{data.strapiHomepage.hero.title}</Typography>
+      <HomeHero hero={data.strapiHomepage.hero} />
+      <Box height={1200}>
+        test
+      </Box>
     </Layout>
   );
 };
@@ -19,6 +23,11 @@ const query = graphql`
     strapiHomepage {
       hero {
         title
+        description
+        gradientOverlay
+        cover {
+          url
+        }
       }
       seo {
         metaTitle

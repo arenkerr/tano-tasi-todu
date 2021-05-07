@@ -1,16 +1,15 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import Layout from '../components/layout';
-import { Box, Container, Grid, Typography } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Hero from '../components/hero';
 import Description from '../components/description';
 
 export const query = graphql`
-  query PageQuery($slug: String!) {
-    strapiPage(slug: {eq: $slug}) {
+  query {
+    strapiAbout {
       hero {
         title
         cover {
@@ -34,20 +33,19 @@ const useStyles = makeStyles({
   }
 });
 
-const Page = ({data}) => {
-  const page = data.strapiPage;
-  const seo = data.strapiPage.seo;
+const About = ({ data }) => {
+  const about = data.strapiAbout;
+  const seo = data.strapiAbout.seo;
   const classes = useStyles();
-  console.log(data)
+  console.log({data})
   return (
     <Layout seo={seo}>
-      <Hero hero={page.hero} />
+      <Hero hero={about.hero} />
       <Container>
-        <Description source={page.content.body} />
-        {/* TODO: add more content options for generic pages */}
+        <Description source={about.content.body} />
       </Container>
     </Layout>
   );
 };
 
-export default Page;
+export default About;

@@ -21,6 +21,12 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "gradientOverlay": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
     }
   }
 }

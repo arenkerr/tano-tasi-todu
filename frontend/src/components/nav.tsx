@@ -9,30 +9,35 @@ import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 
-import theme from '../theme';
+import tTheme from '../theme';
 import AppMenu from './appMenu'
+
+enum MenuTypes {
+  DESKTOP = 'desktop',
+  MOBILE = 'mobile'
+}
 
 const useStyles = makeStyles({
   appBar: {
     paddingLeft: 12,
     flexDirection: 'row',
     alignItems: 'center',
-    color: theme.palette.primary.contrastText,
+    color: tTheme.theme.palette.primary.contrastText,
     justifyContent: 'space-between',
-    [theme.breakpoints.up('sm')]: {
+    [tTheme.theme.breakpoints.up('sm')]: {
       paddingLeft: 24,
     },
   },
   mobileMenuIcon: {
-    color: theme.palette.primary.contrastText,
+    color: tTheme.theme.palette.primary.contrastText,
     justifySelf: '',
     display: 'block',
-    [theme.breakpoints.up('sm')]: {
+    [tTheme.theme.breakpoints.up('sm')]: {
       display: 'none',
     },
   },
   mobileMenu: {
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: tTheme.theme.palette.primary.dark,
     zIndex: 1000,
     width: '100vh',
     height: '100vh',
@@ -42,12 +47,12 @@ const useStyles = makeStyles({
   },
   desktopMenu: {
     display: 'none',
-    [theme.breakpoints.up('sm')]: {
+    [tTheme.theme.breakpoints.up('sm')]: {
       display: 'block',
     },
   },
   link: {
-    color: theme.palette.primary.contrastText,
+    color: tTheme.theme.palette.primary.contrastText,
     textDecoration: 'none'
   }
 });
@@ -65,7 +70,6 @@ const Nav = () => {
     setMenuState(null);
   };
 
-  console.log(menuOpen)
 
   return (
     <StaticQuery
@@ -84,38 +88,52 @@ const Nav = () => {
               }
             }
           }
+          strapiAbout {
+            hero {
+              title
+            }
+            slug
+          }
         }
       `}
-      render={(data) => (
-        <>
-          {menuOpen &&
-            <div className={classes.mobileMenu}>
+      render={(data) => {
+        const allPages = [
+          data.strapiAbout,
+          ...data.allStrapiPage.edges.map(page => page.node)
+        ]
+        console.log(allPages)
+        return (
+          <>
+            {menuOpen &&
+              <div className={classes.mobileMenu}>
+                <IconButton 
+                  className={classes.mobileMenuIcon}
+                  aria-controls='menu' 
+                  onClick={handleClose}>
+                  <CloseIcon />
+                </IconButton>
+                <AppMenu links={allPages} type={MenuTypes.MOBILE} />
+              </div>
+            }
+            <AppBar position='sticky' className={classes.appBar}>
+              <Typography variant='h6'>
+                <Link to='/' className={classes.link}>{data.strapiGlobal.siteName}</Link>
+              </Typography>
               <IconButton 
                 className={classes.mobileMenuIcon}
                 aria-controls='menu' 
-                onClick={handleClose}>
-                <CloseIcon />
+                aria-haspopup='true' 
+                onClick={handleClick}>
+                <MenuIcon />
               </IconButton>
-              <AppMenu links={data.allStrapiPage.edges} styles={classes.link} />
-            </div>
-          }
-          <AppBar position='sticky' className={classes.appBar}>
-            <Typography variant='h6'>
-              <Link to='/' className={classes.link}>{data.strapiGlobal.siteName}</Link>
-            </Typography>
-            <IconButton 
-              className={classes.mobileMenuIcon}
-              aria-controls='menu' 
-              aria-haspopup='true' 
-              onClick={handleClick}>
-              <MenuIcon />
-            </IconButton>
-            <div className={classes.desktopMenu}>
-              <AppMenu links={data.allStrapiPage.edges} styles={classes.link} />
-            </div>
-          </AppBar>
-        </>
-      )}
+              <div className={classes.desktopMenu}>
+                <AppMenu links={allPages} type={MenuTypes.DESKTOP} />
+              </div>
+            </AppBar>
+          </>
+        )
+      }
+    }
     />
   )
 };
