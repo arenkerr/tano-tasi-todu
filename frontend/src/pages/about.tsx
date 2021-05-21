@@ -28,9 +28,6 @@ export const query = graphql`
     strapiPeople {
       bio
       name
-      photo {
-        url
-      }
     }
   }
 `;
@@ -49,7 +46,7 @@ const About = ({ data }) => {
       <Hero hero={about.hero} />
       <Container>
         <Description source={about.content.body} />
-        <img src={data.strapiPeople.photo.publicURL} />
+        {/* <img src={data.strapiPeople.photo.publicURL} /> */}
       </Container>
     </Layout>
   );
