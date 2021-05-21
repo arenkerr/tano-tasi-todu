@@ -1,0 +1,3 @@
+base = "frontend/"
+publish = "public/"
+command = "gatsby build"
