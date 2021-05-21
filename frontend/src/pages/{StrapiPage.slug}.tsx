@@ -14,7 +14,11 @@ export const query = graphql`
       hero {
         title
         cover {
-          publicURL
+          childImageSharp {
+            fluid {
+              src
+            }
+          }
         }
       }
       content {

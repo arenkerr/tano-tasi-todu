@@ -14,7 +14,11 @@ export const query = graphql`
       hero {
         title
         cover {
-          publicURL
+          childImageSharp {
+            fluid {
+              src
+            }
+          }
         }
       }
       content {
@@ -29,7 +33,11 @@ export const query = graphql`
       bio
       name
       photo {
-        publicURL
+        childImageSharp {
+          fluid {
+            src
+          }
+        }
       }
     }
   }

@@ -24,7 +24,11 @@ const query = graphql`
         description
         gradientOverlay
         cover {
-          publicURL
+          childImageSharp {
+            fluid {
+              src
+            }
+          }
         }
       }
       seo {
