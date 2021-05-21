@@ -10,11 +10,11 @@ import Description from '../components/description';
 
 export const query = graphql`
   query PageQuery($slug: String!) {
-    strapiPage(slug: {eq: $slug}) {
+    strapiPage(slug: { eq: $slug }) {
       hero {
         title
         cover {
-          url
+          publicURL
         }
       }
       content {
@@ -29,16 +29,14 @@ export const query = graphql`
 `;
 
 const useStyles = makeStyles({
-  root: {
-
-  }
+  root: {},
 });
 
-const Page = ({data}) => {
+const Page = ({ data }) => {
   const page = data.strapiPage;
   const seo = data.strapiPage.seo;
   const classes = useStyles();
-  console.log(data)
+  // console.log(data);
   return (
     <Layout seo={seo}>
       <Hero hero={page.hero} />

@@ -7,13 +7,11 @@ import HomeHero from '../components/homeHero';
 
 const IndexPage = () => {
   const data = useStaticQuery(query);
-  console.log(data.strapiHomepage)
+  // console.log(data.strapiHomepage)
   return (
     <Layout seo={data.strapiHomepage.seo}>
       <HomeHero hero={data.strapiHomepage.hero} />
-      <Box height={1200}>
-        test
-      </Box>
+      <Box height={1200}>test</Box>
     </Layout>
   );
 };
@@ -26,7 +24,7 @@ const query = graphql`
         description
         gradientOverlay
         cover {
-          url
+          publicURL
         }
       }
       seo {

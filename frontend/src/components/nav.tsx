@@ -1,20 +1,16 @@
 import React from 'react';
 import { Link, StaticQuery, graphql } from 'gatsby';
-import { 
-  AppBar, 
-  IconButton,
-  Typography
-} from '@material-ui/core';
+import { AppBar, IconButton, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 
 import tTheme from '../theme';
-import AppMenu from './appMenu'
+import AppMenu from './appMenu';
 
 enum MenuTypes {
   DESKTOP = 'desktop',
-  MOBILE = 'mobile'
+  MOBILE = 'mobile',
 }
 
 const useStyles = makeStyles({
@@ -43,7 +39,7 @@ const useStyles = makeStyles({
     height: '100vh',
     borderRadius: 0,
     top: 0,
-    left: 0
+    left: 0,
   },
   desktopMenu: {
     display: 'none',
@@ -53,8 +49,8 @@ const useStyles = makeStyles({
   },
   link: {
     color: tTheme.theme.palette.primary.contrastText,
-    textDecoration: 'none'
-  }
+    textDecoration: 'none',
+  },
 });
 
 const Nav = () => {
@@ -70,7 +66,6 @@ const Nav = () => {
     setMenuState(null);
   };
 
-
   return (
     <StaticQuery
       query={graphql`
@@ -78,7 +73,7 @@ const Nav = () => {
           strapiGlobal {
             siteName
           }
-          allStrapiPage(filter: {menu: {eq: true}}) {
+          allStrapiPage(filter: { menu: { eq: true } }) {
             edges {
               node {
                 hero {
@@ -97,33 +92,30 @@ const Nav = () => {
         }
       `}
       render={(data) => {
-        const allPages = [
-          data.strapiAbout,
-          ...data.allStrapiPage.edges.map(page => page.node)
-        ]
-        console.log(allPages)
+        const allPages = [data.strapiAbout, ...data.allStrapiPage.edges.map((page) => page.node)];
+        // console.log(allPages)
         return (
           <>
-            {menuOpen &&
+            {menuOpen && (
               <div className={classes.mobileMenu}>
-                <IconButton 
-                  className={classes.mobileMenuIcon}
-                  aria-controls='menu' 
-                  onClick={handleClose}>
+                <IconButton className={classes.mobileMenuIcon} aria-controls="menu" onClick={handleClose}>
                   <CloseIcon />
                 </IconButton>
                 <AppMenu links={allPages} type={MenuTypes.MOBILE} />
               </div>
-            }
-            <AppBar position='sticky' className={classes.appBar}>
-              <Typography variant='h6'>
-                <Link to='/' className={classes.link}>{data.strapiGlobal.siteName}</Link>
+            )}
+            <AppBar position="sticky" className={classes.appBar}>
+              <Typography variant="h6">
+                <Link to="/" className={classes.link}>
+                  {data.strapiGlobal.siteName}
+                </Link>
               </Typography>
-              <IconButton 
+              <IconButton
                 className={classes.mobileMenuIcon}
-                aria-controls='menu' 
-                aria-haspopup='true' 
-                onClick={handleClick}>
+                aria-controls="menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+              >
                 <MenuIcon />
               </IconButton>
               <div className={classes.desktopMenu}>
@@ -131,11 +123,10 @@ const Nav = () => {
               </div>
             </AppBar>
           </>
-        )
-      }
-    }
+        );
+      }}
     />
-  )
+  );
 };
 
 export default Nav;

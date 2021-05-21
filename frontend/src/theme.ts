@@ -43,6 +43,7 @@ const theme = createMuiTheme({
       fontFamily: 'Catamaran',
       fontSize: 18,
       fontWeight: 700,
+      lineHeight: 'initial',
     },
     h6: {
       fontFamily: 'Catamaran',
