@@ -25,10 +25,6 @@ export const query = graphql`
         metaDescription
       }
     }
-    strapiPeople {
-      bio
-      name
-    }
   }
 `;
 

@@ -6,7 +6,7 @@ import tTheme from '../theme';
 
 const useStyles = makeStyles({
   root: {
-    backgroundImage: (hero: any) => `url(${hero.cover.publicURL})`,
+    backgroundImage: (hero: any) => `url(${hero.cover.url})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
