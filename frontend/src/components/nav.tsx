@@ -73,7 +73,16 @@ const Nav = () => {
           strapiGlobal {
             siteName
           }
-
+          allStrapiPage(filter: { menu: { eq: true } }) {
+            edges {
+              node {
+                hero {
+                  title
+                }
+                slug
+              }
+            }
+          }
           strapiAbout {
             hero {
               title
@@ -83,11 +92,11 @@ const Nav = () => {
         }
       `}
       render={(data) => {
-        // const allPages = [data.strapiAbout, ...data.allStrapiPage.edges.map((page) => page.node)];
+        const allPages = [data.strapiAbout, ...data.allStrapiPage.edges.map((page) => page.node)];
         // console.log(allPages)
         return (
           <>
-            {/* {menuOpen && (
+            {menuOpen && (
               <div className={classes.mobileMenu}>
                 <IconButton className={classes.mobileMenuIcon} aria-controls="menu" onClick={handleClose}>
                   <CloseIcon />
@@ -112,7 +121,7 @@ const Nav = () => {
               <div className={classes.desktopMenu}>
                 <AppMenu links={allPages} type={MenuTypes.DESKTOP} />
               </div>
-            </AppBar> */}
+            </AppBar>
           </>
         );
       }}
@@ -121,14 +130,3 @@ const Nav = () => {
 };
 
 export default Nav;
-
-// allStrapiPage(filter: { menu: { eq: true } }) {
-//   edges {
-//     node {
-//       hero {
-//         title
-//       }
-//       slug
-//     }
-//   }
-// }
