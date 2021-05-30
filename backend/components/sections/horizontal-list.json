@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_horizontal_lists",
+  "info": {
+    "name": "horizontalList",
+    "icon": "grip-horizontal"
+  },
+  "options": {},
+  "attributes": {
+    "listItem": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.list-item"
+    }
+  }
+}

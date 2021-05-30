@@ -72,13 +72,13 @@ const HomeHero = ({ hero }) => {
             </Grid>
           </Grid>
           <Grid container spacing={2}>
-            <Grid item lg={2}>
+            <Grid item md={3} xs={12}>
               <Button variant="contained" size="large" color="primary" href="/about" className={classes.button}>
                 About Us
               </Button>
             </Grid>
-            <Grid item lg={2}>
-              <Button variant="contained" size="large" color="primary" href="/work" className={classes.button}>
+            <Grid item md={3} xs={12}>
+              <Button variant="contained" size="large" color="primary" href="/our-work" className={classes.button}>
                 Our Work
               </Button>
             </Grid>

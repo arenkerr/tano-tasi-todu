@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_list_items",
+  "info": {
+    "name": "listItem",
+    "icon": "border-style"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    }
+  }
+}

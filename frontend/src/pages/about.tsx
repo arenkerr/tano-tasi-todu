@@ -1,12 +1,14 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
-import { Container, Grid, Divider, Typography } from '@material-ui/core';
+import { Container, Grid, Divider, Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Img from 'gatsby-image';
 
 import Hero from '../components/hero';
 import Description from '../components/description';
+import Footer from '../components/footer';
+import Spacer from '../components/spacer';
 import tTheme from '../theme';
 
 export const query = graphql`
@@ -41,9 +43,6 @@ export const query = graphql`
 
 const useStyles = makeStyles({
   root: {},
-  spacer: {
-    marginTop: '4rem',
-  },
   image: {
     maxWidth: '100%',
   },
@@ -55,6 +54,13 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     justifyContent: 'center',
   },
+  buttonGroup: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+  button: {
+    minWidth: '60%',
+  },
 });
 
 const About = ({ data }) => {
@@ -63,27 +69,52 @@ const About = ({ data }) => {
   const about = data.strapiAbout;
   const seo = data.strapiAbout.seo;
   const people = data.allStrapiPeople.nodes;
-  console.log({ data });
+
   return (
     <Layout seo={seo}>
       <Hero hero={about.hero} />
       <Container>
         <Description source={about.content.body} />
-        <Divider className={classes.spacer} />
+        <Spacer />
+        <Divider />
+        <Spacer />
         {people.map((person) => (
-          <Grid container spacing={4} className={classes.spacer}>
-            <Grid className={classes.person} item md={3}>
-              <img src={person.photo.url} alt={person.name} className={classes.image} />
+          <>
+            <Grid container spacing={4}>
+              <Grid className={classes.person} item md={3}>
+                <img src={person.photo.url} alt={person.name} className={classes.image} />
+              </Grid>
+              <Grid item md={9}>
+                <Typography variant="subtitle2" className={classes.name}>
+                  {person.name}
+                </Typography>
+                <Typography variant="body1">{person.bio}</Typography>
+              </Grid>
             </Grid>
-            <Grid item md={9}>
-              <Typography variant="subtitle2" className={classes.name}>
-                {person.name}
-              </Typography>
-              <Typography variant="body1">{person.bio}</Typography>
-            </Grid>
-          </Grid>
+            <Spacer />
+          </>
         ))}
+        <Grid container spacing={2}>
+          <Grid item md={6} xs={12} className={classes.buttonGroup}>
+            <Button variant="contained" size="large" color="primary" href="/our-work" className={classes.button}>
+              Our Work
+            </Button>
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <Button
+              variant="contained"
+              size="large"
+              color="primary"
+              href="mailto:email@email.com"
+              className={classes.button}
+            >
+              Contact Us
+            </Button>
+          </Grid>
+        </Grid>
+        <Spacer />
       </Container>
+      <Footer />
     </Layout>
   );
 };

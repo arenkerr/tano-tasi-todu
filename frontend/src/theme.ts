@@ -15,7 +15,7 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#26ada1',
-      light: '#65dfd2',
+      light: '#b2deda',
       dark: '#007d73',
       contrastText: '#f5f5f5',
     },
@@ -108,10 +108,14 @@ const theme = createMuiTheme({
         fontWeight: 700,
         lineHeight: 1.2,
         letterSpacing: 1,
+        borderRadius: 0,
       },
       containedSizeLarge: {
         fontSize: 16,
         padding: '14px 22px 10px 22px',
+        [defaultTheme.breakpoints.down('sm')]: {
+          width: '100%',
+        },
       },
       contained: {
         boxShadow: 'none',
