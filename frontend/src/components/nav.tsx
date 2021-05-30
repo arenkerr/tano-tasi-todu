@@ -21,6 +21,7 @@ const useStyles = makeStyles({
     justifyContent: 'space-between',
     [tTheme.theme.breakpoints.up('sm')]: {
       paddingLeft: 24,
+      paddingRight: 24,
     },
   },
   mobileMenuIcon: {

@@ -41,7 +41,6 @@ const Footer = () => {
   const data = useStaticQuery(query);
   const classes = useStyles();
 
-  console.log(data);
   return (
     <div className={classes.root}>
       <Container>
@@ -50,31 +49,31 @@ const Footer = () => {
             switch (item.site) {
               case 'facebook':
                 return (
-                  <Grid item>
+                  <Grid item key="facebook">
                     <Facebook fontSize="large" />
                   </Grid>
                 );
               case 'instagram':
                 return (
-                  <Grid item>
+                  <Grid item key="instagram">
                     <Instagram fontSize="large" />
                   </Grid>
                 );
               case 'twitter':
                 return (
-                  <Grid item>
+                  <Grid item key="twitter">
                     <Twitter fontSize="large" />
                   </Grid>
                 );
               case 'youTube':
                 return (
-                  <Grid item>
+                  <Grid item key="youTube">
                     <YouTube fontSize="large" />
                   </Grid>
                 );
               case 'linkedIn':
                 return (
-                  <Grid item>
+                  <Grid item key="linkedIn">
                     <LinkedIn fontSize="large" />
                   </Grid>
                 );

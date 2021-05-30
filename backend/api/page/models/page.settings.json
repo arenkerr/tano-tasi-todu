@@ -31,6 +31,11 @@
     },
     "menu": {
       "type": "boolean"
+    },
+    "horizontalList": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.horizontal-list"
     }
   }
 }
