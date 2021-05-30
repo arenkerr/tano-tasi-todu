@@ -1,17 +1,28 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
+const defaultTheme = createMuiTheme();
 
 const theme = createMuiTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
   palette: {
     primary: {
-      main: '#00674a',
-      light: '#419676',
-      dark: '#003b22',
+      main: '#26ada1',
+      light: '#65dfd2',
+      dark: '#007d73',
       contrastText: '#f5f5f5',
     },
     secondary: {
-      main: '#2e7d32',
-      light: '#60ad5e',
-      dark: '#005005',
+      main: '#2e4b9e',
+      light: '#6476d0',
+      dark: '#00246f',
       contrastText: '#f5f5f5',
     },
     error: {
@@ -28,36 +39,102 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: 'Roboto Slab',
     h1: {
-      fontFamily: 'Catamaran',
+      fontFamily: 'Josefin Sans',
       fontSize: 86,
-      fontWeight: 900,
+      fontWeight: 200,
       textTransform: 'uppercase',
+      [defaultTheme.breakpoints.down('sm')]: {
+        fontSize: 50,
+      },
     },
     h2: {
-      fontFamily: 'Catamaran',
+      fontFamily: 'Josefin Sans',
       fontSize: 72,
       fontWeight: 900,
       textTransform: 'uppercase',
     },
+    h3: {
+      fontFamily: 'Josefin Sans',
+      fontWeight: 200,
+      fontSize: 54,
+      textTransform: 'uppercase',
+    },
+    h4: {
+      fontFamily: 'Josefin Sans',
+      fontWeight: 200,
+      fontSize: 24,
+      textTransform: 'uppercase',
+    },
     h5: {
-      fontFamily: 'Catamaran',
+      fontFamily: 'Josefin Sans',
       fontSize: 18,
       fontWeight: 700,
       lineHeight: 'initial',
     },
     h6: {
-      fontFamily: 'Catamaran',
+      fontFamily: 'Josefin Sans',
       fontSize: 18,
-      fontWeight: 200,
+      fontWeight: 400,
       textTransform: 'uppercase',
       letterSpacing: 1,
+    },
+    subtitle1: {
+      fontFamily: 'Josefin Sans',
+      fontSize: 16,
+      fontWeight: 400,
+      textTransform: 'uppercase',
+      letterSpacing: 1,
+    },
+    subtitle2: {
+      fontFamily: 'Roboto Slab',
+      fontSize: 20,
+      fontWeight: 400,
+    },
+    body1: {
+      fontSize: 14,
+      lineHeight: '2rem',
+      marginTop: '1rem',
+      marginBottom: '1rem',
+    },
+    caption: {
+      fontFamily: 'Josefin Sans',
+      fontSize: 12,
+    },
+  },
+  overrides: {
+    MuiButton: {
+      root: {
+        fontFamily: 'Josefin Sans',
+        fontWeight: 700,
+        lineHeight: 1.2,
+        letterSpacing: 1,
+      },
+      containedSizeLarge: {
+        fontSize: 16,
+        padding: '14px 22px 10px 22px',
+      },
+      contained: {
+        boxShadow: 'none',
+      },
+    },
+    MuiAppBar: {
+      colorPrimary: {
+        backgroundColor: '#2e4b9e',
+      },
+    },
+    MuiContainer: {
+      maxWidthLg: {
+        paddingLeft: 48,
+        paddingRight: 48,
+      },
     },
   },
 });
 
 // theme sizes
 const size = {
-  appBar: 56,
+  appBar: 60,
+  appBarMobile: 48,
   pageHero: 400,
 };
 

@@ -10,9 +10,9 @@ const useStyles = makeStyles({
     textAlign: 'center',
     lineHeight: '1.75rem',
     marginTop: '4rem',
-    maxWidth: 900
+    maxWidth: 900,
   },
-})
+});
 
 const Hero = ({ source }) => {
   const classes = useStyles();
@@ -20,10 +20,10 @@ const Hero = ({ source }) => {
   return (
     <Grid container spacing={2} justify={'center'}>
       <Grid item xs={12} className={classes.root}>
-        <Markdown source={source} escapeHtml={false} />
+        <Markdown children={source} />
       </Grid>
     </Grid>
-  )
+  );
 };
 
 export default Hero;

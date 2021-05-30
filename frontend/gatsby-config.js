@@ -17,7 +17,7 @@ module.exports = {
       options: {
         apiURL: process.env.API_URL || 'http://localhost:1337',
         collectionTypes: ['page', 'people'],
-        singleTypes: ['homepage', 'global', 'about'],
+        singleTypes: ['homepage', 'global', 'about', 'footer'],
         queryLimit: 1000,
       },
     },

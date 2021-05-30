@@ -12,13 +12,19 @@ const useStyles = makeStyles({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
-    height: '100vh',
+    height: `calc(100vh - ${tTheme.size.appBar}px)`,
+    [tTheme.theme.breakpoints.down('sm')]: {
+      height: `calc(100vh - ${tTheme.size.appBarMobile}px)`,
+    },
   },
   overlay: {
     backgroundImage: (hero) => (hero.gradientOverlay ? hero.gradientOverlay : `linear-gradient(#00107dcc, #ffffff00)`),
     opacity: 0.65,
-    height: '100vh',
+    height: `calc(100vh - ${tTheme.size.appBar}px)`,
     width: '100%',
+    [tTheme.theme.breakpoints.down('sm')]: {
+      height: `calc(100vh - ${tTheme.size.appBarMobile}px)`,
+    },
   },
   content: {
     display: 'flex',
@@ -27,14 +33,22 @@ const useStyles = makeStyles({
     position: 'absolute',
     top: tTheme.size.appBar,
     width: '100%',
-    minHeight: '100vh',
+    height: `calc(100vh - ${tTheme.size.appBar}px)`,
     textShadow: '1px 1px 17px #0000004f',
+    [tTheme.theme.breakpoints.down('sm')]: {
+      alignItems: 'flex-start',
+      marginTop: '2rem',
+      height: `calc(100vh - ${tTheme.size.appBarMobile}px)`,
+    },
   },
   description: {
     lineHeight: '1.75rem',
     marginTop: '2rem',
     maxWidth: 900,
     color: tTheme.theme.palette.text.secondary,
+    [tTheme.theme.breakpoints.down('sm')]: {
+      marginTop: 0,
+    },
   },
   button: {
     width: '100%',
@@ -43,7 +57,6 @@ const useStyles = makeStyles({
 
 const HomeHero = ({ hero }) => {
   const classes = useStyles(hero);
-  console.log(hero);
 
   return (
     <div className={classes.root}>
@@ -55,18 +68,18 @@ const HomeHero = ({ hero }) => {
               {hero.title}
             </Typography>
             <Grid item xs={12} className={classes.description}>
-              <Markdown source={hero.description} escapeHtml={false} />
+              <Markdown children={hero.description} />
             </Grid>
           </Grid>
           <Grid container spacing={2}>
             <Grid item lg={2}>
               <Button variant="contained" size="large" color="primary" href="/about" className={classes.button}>
-                <Typography variant="h5">About Us</Typography>
+                About Us
               </Button>
             </Grid>
             <Grid item lg={2}>
               <Button variant="contained" size="large" color="primary" href="/work" className={classes.button}>
-                <Typography variant="h5">Our Work</Typography>
+                Our Work
               </Button>
             </Grid>
           </Grid>

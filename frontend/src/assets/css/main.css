@@ -1,10 +1,14 @@
-/* These styles are only for strapi markdown content that cannot be styled by MUI theme typography */
+/* 
+  NOTE: These styles are only for strapi markdown content that cannot be styled by MUI theme typography 
+  All other styling is handled in theme.ts 
+*/
 
 h1 {
-  font-family: 'Catamaran', 'sans-serif';
-  font-weight: 900;
+  font-family: 'Josefin Sans', 'sans-serif';
+  font-weight: 200;
   font-size: 36px;
-  color: #00674a;
+  color: #007d73;
+  text-transform: 'uppercase';
 }
 
 h2 {
@@ -13,6 +17,7 @@ h2 {
 
 h3 {
   font-size: 28px;
+  font-weight: 400;
 }
 
 h4 {
@@ -26,9 +31,15 @@ h5 {
 
 h6 {
   font-size: 18px;
+  font-weight: 400;
+  line-height: 1.75em;
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
 }
 
 p {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }

@@ -18,7 +18,6 @@ const useStyles = makeStyles({
     paddingLeft: 12,
     flexDirection: 'row',
     alignItems: 'center',
-    color: tTheme.theme.palette.primary.contrastText,
     justifyContent: 'space-between',
     [tTheme.theme.breakpoints.up('sm')]: {
       paddingLeft: 24,
@@ -33,8 +32,9 @@ const useStyles = makeStyles({
     },
   },
   mobileMenu: {
-    backgroundColor: tTheme.theme.palette.primary.dark,
-    zIndex: 1000,
+    backgroundImage: 'linear-gradient(0deg, #282963, #007d73)',
+    zIndex: 10000,
+    position: 'fixed',
     width: '100vh',
     height: '100vh',
     borderRadius: 0,
@@ -50,6 +50,9 @@ const useStyles = makeStyles({
   link: {
     color: tTheme.theme.palette.primary.contrastText,
     textDecoration: 'none',
+  },
+  siteName: {
+    lineHeight: 'unset',
   },
 });
 
@@ -104,8 +107,8 @@ const Nav = () => {
                 <AppMenu links={allPages} type={MenuTypes.MOBILE} />
               </div>
             )}
-            <AppBar position="sticky" className={classes.appBar}>
-              <Typography variant="h6">
+            <AppBar position="sticky" className={classes.appBar} elevation={0}>
+              <Typography variant="h6" className={classes.siteName}>
                 <Link to="/" className={classes.link}>
                   {data.strapiGlobal.siteName}
                 </Link>

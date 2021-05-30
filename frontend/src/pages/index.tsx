@@ -4,14 +4,15 @@ import { Box, Typography } from '@material-ui/core';
 
 import Layout from '../components/layout';
 import HomeHero from '../components/homeHero';
+import Footer from '../components/footer';
 
 const IndexPage = () => {
   const data = useStaticQuery(query);
-  // console.log(data.strapiHomepage)
+
   return (
     <Layout seo={data.strapiHomepage.seo}>
       <HomeHero hero={data.strapiHomepage.hero} />
-      <Box height={1200}>test</Box>
+      <Footer />
     </Layout>
   );
 };

@@ -22,7 +22,7 @@ const SEO = ({ seo = {} }) => {
         {
           name: 'twitter:title',
           content: fullSeo.metaTitle,
-        }
+        },
       );
     }
     if (fullSeo.metaDescription) {
@@ -38,7 +38,7 @@ const SEO = ({ seo = {} }) => {
         {
           name: 'twitter:description',
           content: fullSeo.metaDescription,
-        }
+        },
       );
     }
     tags.push({ name: 'twitter:card', content: 'summary_large_image' });
@@ -59,22 +59,15 @@ const SEO = ({ seo = {} }) => {
         },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Catamaran:wght@200;700;900&display=swap',
+          href: 'https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap',
         },
-        // {
-        //   rel: 'stylesheet',
-        //   href:
-        //     'https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/css/uikit.min.css',
-        // },
       ]}
       script={[
         {
-          src:
-            'https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js',
+          src: 'https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js',
         },
         {
-          src:
-            'https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js',
+          src: 'https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js',
         },
         {
           src: 'https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.js',
