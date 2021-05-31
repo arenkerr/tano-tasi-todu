@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 
 const AppMenu = ({ links, type }) => {
   const classes = useStyles();
-  console.log(classes.desktop, classes[type]);
+
   return (
     <List className={classes[type]}>
       {links.map((page) => (

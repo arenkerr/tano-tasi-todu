@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 
 const HorizontalList = ({ list }) => {
   const classes = useStyles();
-  console.log('list ==>', list);
+
   return (
     <div className={classes.root}>
       <Container>

@@ -1,7 +1,6 @@
 # Tåno, Tåsi, yan Todu
 
 > Note: Work in progress - check back soon!
-> Website for indigenous environmental protection organization on Guåhan.
 
 ## Built with
 

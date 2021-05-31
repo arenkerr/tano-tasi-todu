@@ -97,7 +97,7 @@ const Nav = () => {
       `}
       render={(data) => {
         const allPages = [data.strapiAbout, ...data.allStrapiPage.edges.map((page) => page.node)];
-        // console.log(allPages)
+
         return (
           <>
             {menuOpen && (

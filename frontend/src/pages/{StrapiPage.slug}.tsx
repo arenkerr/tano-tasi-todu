@@ -45,7 +45,7 @@ const Page = ({ data }) => {
   const page = data.strapiPage;
   const seo = data.strapiPage.seo;
   const classes = useStyles();
-  console.log('page data ==>', page);
+
   return (
     <Layout seo={seo}>
       <Hero hero={page.hero} />
