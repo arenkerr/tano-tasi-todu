@@ -1,4 +1,5 @@
 import React from 'react';
+import Markdown from 'react-markdown';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import { Container, Grid, Divider, Typography, Button } from '@material-ui/core';
@@ -88,7 +89,7 @@ const About = ({ data }) => {
                 <Typography variant="subtitle2" className={classes.name}>
                   {person.name}
                 </Typography>
-                <Typography variant="body1">{person.bio}</Typography>
+                <Markdown children={person.bio} />
               </Grid>
             </Grid>
             <Spacer />
