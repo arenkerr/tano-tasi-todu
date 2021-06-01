@@ -106,7 +106,9 @@ const About = ({ data }) => {
               variant="contained"
               size="large"
               color="primary"
-              href="mailto:email@email.com"
+              href="mailto:tanotasitodu@gmail.com"
+              target="_blank" 
+              rel="noreferrer noopener"
               className={classes.button}
             >
               Contact Us

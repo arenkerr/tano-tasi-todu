@@ -81,7 +81,7 @@ const Footer = () => {
           })}
         </Grid>
         <div className={classes.siteName}>
-          <Typography variant="caption">©&nbsp;{data.strapiGlobal.siteName}</Typography>
+          <Typography variant="caption">©&nbsp;{data.strapiGlobal.siteName} | <a href="mailto:tanotasitodu@gmail.com" target="_blank" rel="noreferrer noopener">tanotasitodu@gmail.com</a></Typography>
         </div>
       </Container>
     </div>
