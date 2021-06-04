@@ -45,15 +45,13 @@ const Page = ({ data }) => {
   const page = data.strapiPage;
   const seo = data.strapiPage.seo;
   const classes = useStyles();
-
+  console.log(page);
   return (
     <Layout seo={seo}>
       <Hero hero={page.hero} />
-      <Container>
-        <Description source={page.content.body} />
-      </Container>
+      <Container>{page.content && <Description source={page.content.body} />}</Container>
       <Spacer />
-      <HorizontalList list={page.horizontalList.listItem} />
+      {page.horizontalList && <HorizontalList list={page.horizontalList.listItem} />}
       <Footer />
     </Layout>
   );

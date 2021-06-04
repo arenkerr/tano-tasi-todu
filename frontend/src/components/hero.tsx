@@ -15,7 +15,9 @@ const useStyles = makeStyles({
   },
   overlay: {
     backgroundImage: (hero) =>
-      hero.gradientOverlay ? hero.gradientOverlay : `linear-gradient(rgb(255 190 94 / 75%), #007d73bf)`,
+      hero.gradientOverlay
+        ? hero.gradientOverlay
+        : `linear-gradient(rgba(255, 190, 94, 0.75), rgba(0, 125, 115, 0.75))`,
     opacity: 0.65,
     minHeight: tTheme.size.pageHero,
     width: '100vw',
