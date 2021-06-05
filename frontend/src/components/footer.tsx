@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
-import { Container, Grid, Icon, List, ListItem, makeStyles, Typography } from '@material-ui/core';
+import { Container, Grid, Icon, List, ListItem, makeStyles, Typography, IconButton } from '@material-ui/core';
 import { Facebook, Instagram, Twitter, YouTube, LinkedIn } from '@material-ui/icons';
 
 import tTheme from '../theme';
@@ -50,38 +50,53 @@ const Footer = () => {
               case 'facebook':
                 return (
                   <Grid item key="facebook">
-                    <Facebook fontSize="large" />
+                    <IconButton href={item.url} target="_blank" rel="noopener noreferrer" color="inherit">
+                      <Facebook fontSize="large" />
+                    </IconButton>
                   </Grid>
                 );
               case 'instagram':
                 return (
                   <Grid item key="instagram">
-                    <Instagram fontSize="large" />
+                    <IconButton href={item.url} target="_blank" rel="noopener noreferrer" color="inherit">
+                      <Instagram fontSize="large" />
+                    </IconButton>
                   </Grid>
                 );
               case 'twitter':
                 return (
                   <Grid item key="twitter">
-                    <Twitter fontSize="large" />
+                    <IconButton href={item.url} target="_blank" rel="noopener noreferrer" color="inherit">
+                      <Twitter fontSize="large" />
+                    </IconButton>
                   </Grid>
                 );
               case 'youTube':
                 return (
                   <Grid item key="youTube">
-                    <YouTube fontSize="large" />
+                    <IconButton href={item.url} target="_blank" rel="noopener noreferrer" color="inherit">
+                      <YouTube fontSize="large" />
+                    </IconButton>
                   </Grid>
                 );
               case 'linkedIn':
                 return (
                   <Grid item key="linkedIn">
-                    <LinkedIn fontSize="large" />
+                    <IconButton href={item.url} target="_blank" rel="noopener noreferrer" color="inherit">
+                      <LinkedIn fontSize="large" />
+                    </IconButton>
                   </Grid>
                 );
             }
           })}
         </Grid>
         <div className={classes.siteName}>
-          <Typography variant="caption">©&nbsp;{data.strapiGlobal.siteName} | <a href="mailto:tanotasitodu@gmail.com" target="_blank" rel="noreferrer noopener">tanotasitodu@gmail.com</a></Typography>
+          <Typography variant="caption">
+            ©&nbsp;{data.strapiGlobal.siteName} |{' '}
+            <a href="mailto:tanotasitodu@gmail.com" target="_blank" rel="noreferrer noopener">
+              tanotasitodu@gmail.com
+            </a>
+          </Typography>
         </div>
       </Container>
     </div>
