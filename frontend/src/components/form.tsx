@@ -39,6 +39,7 @@ const Form = () => {
   return (
     <Box m={2}>
       <form className={classes.root} name="contact" method="POST" data-netlify="true" action="/success">
+        <input type="hidden" name="form-name" value="contact" />
         <Grid container spacing={2}>
           <Grid item md={6} xs={12}>
             <TextField
