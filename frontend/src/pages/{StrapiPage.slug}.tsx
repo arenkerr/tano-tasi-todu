@@ -10,7 +10,7 @@ import Description from '../components/description';
 import Footer from '../components/footer';
 import Spacer from '../components/spacer';
 import HorizontalList from '../components/horizontalList';
-// import Form from '../components/form';
+import Form from '../components/form';
 
 export const query = graphql`
   query PageQuery($slug: String!) {
@@ -47,7 +47,7 @@ const Page = ({ data }) => {
   const page = data.strapiPage;
   const seo = data.strapiPage.seo;
   const classes = useStyles();
-  console.log(page.slug === 'contact');
+
   return (
     <Layout seo={seo}>
       <Hero hero={page.hero} />
@@ -55,7 +55,7 @@ const Page = ({ data }) => {
       <Spacer />
       {page.horizontalList && <HorizontalList list={page.horizontalList.listItem} />}
       <Spacer />
-      {/* {page.slug === 'contact' && <Form />} */}
+      {page.slug === 'contact' && <Form />}
       <Footer />
     </Layout>
   );
