@@ -38,14 +38,7 @@ const Form = () => {
 
   return (
     <Box m={2}>
-      <form
-        className={classes.root}
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        action="/success"
-      >
+      <form className={classes.root} name="contact" method="POST" data-netlify="true" action="/success">
         <Grid container spacing={2}>
           <Grid item md={6} xs={12}>
             <TextField
