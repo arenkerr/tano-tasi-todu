@@ -13,7 +13,10 @@ import Footer from './footer';
 
 const useStyles = makeStyles({
   root: {
-    minHeight: '100vh',
+    minHeight: `calc(100vh - ${tTheme.size.appBar}px)`,
+    [tTheme.theme.breakpoints.down('xs')]: {
+      minHeight: `calc(100vh - ${tTheme.size.appBarMobile}px)`,
+    },
   },
 });
 

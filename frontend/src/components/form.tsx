@@ -46,8 +46,8 @@ const Form = () => {
         netlify-honeypot="bot-field"
         action="/success"
       >
-        <Grid container spacing={4}>
-          <Grid item xs={6}>
+        <Grid container spacing={2}>
+          <Grid item md={6} xs={12}>
             <TextField
               id="name"
               label="Name"
@@ -59,7 +59,7 @@ const Form = () => {
               required
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item md={6} xs={12}>
             <TextField id="email" label="Email" variant="outlined" placeholder="Email" fullWidth required />
           </Grid>
         </Grid>
@@ -70,15 +70,15 @@ const Form = () => {
               label="Message"
               variant="outlined"
               placeholder="Message"
-              rows={4}
+              rows={6}
               fullWidth
               multiline
               required
             />
           </Grid>
         </Grid>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
+        <Grid container spacing={4}>
+          <Grid item md={6} xs={12}>
             <Button variant="contained" size="large" color="primary" type="submit">
               {status}
             </Button>
