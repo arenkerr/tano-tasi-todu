@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
-import { Container, Grid, Icon, List, ListItem, makeStyles, Typography, IconButton } from '@material-ui/core';
+import { graphql, useStaticQuery } from 'gatsby';
+import { Container, Grid, makeStyles, Typography, IconButton } from '@material-ui/core';
 import { Facebook, Instagram, Twitter, YouTube, LinkedIn } from '@material-ui/icons';
 
 import tTheme from '../theme';
@@ -26,6 +26,9 @@ const useStyles = makeStyles({
     color: tTheme.theme.palette.primary.contrastText,
     textAlign: 'center',
     padding: '4em',
+    [tTheme.theme.breakpoints.down('xs')]: {
+      padding: '2em',
+    },
   },
   siteName: {
     marginTop: 24,

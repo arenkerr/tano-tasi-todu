@@ -1,13 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import Layout from '../components/layout';
-import { Box, Container, Grid, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Container } from '@material-ui/core';
 
 import Hero from '../components/hero';
 import Description from '../components/description';
-import Footer from '../components/footer';
 import Spacer from '../components/spacer';
 import HorizontalList from '../components/horizontalList';
 import Form from '../components/form';
@@ -39,14 +36,9 @@ export const query = graphql`
   }
 `;
 
-const useStyles = makeStyles({
-  root: {},
-});
-
 const Page = ({ data }) => {
   const page = data.strapiPage;
   const seo = data.strapiPage.seo;
-  const classes = useStyles();
 
   return (
     <Layout seo={seo}>
@@ -56,7 +48,6 @@ const Page = ({ data }) => {
       {page.horizontalList && <HorizontalList list={page.horizontalList.listItem} />}
       <Spacer />
       {page.slug === 'contact' && <Form />}
-      <Footer />
     </Layout>
   );
 };

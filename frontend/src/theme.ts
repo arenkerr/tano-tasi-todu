@@ -1,4 +1,4 @@
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 
 const defaultTheme = createMuiTheme();
 
@@ -130,6 +130,11 @@ const theme = createMuiTheme({
       maxWidthLg: {
         paddingLeft: 48,
         paddingRight: 48,
+      },
+    },
+    MuiFormLabel: {
+      root: {
+        color: '#a7a7a7',
       },
     },
   },

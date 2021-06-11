@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { graphql } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
 
-import tTheme from '../theme';
 import { Box, Grid, Button, TextField } from '@material-ui/core';
 import Spacer from './spacer';
 
@@ -39,20 +37,30 @@ const Form = () => {
   };
 
   return (
-    <>
+    <Box m={2}>
       <form
-        onSubmit={(e) => {
-          // e.preventDefault();
-          handleSubmit(e);
-        }}
         className={classes.root}
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/success"
       >
-        <Grid container spacing={2}>
+        <Grid container spacing={4}>
           <Grid item xs={6}>
-            <TextField id="name" label="Name" variant="outlined" placeholder="Name" onChange={handleChange} fullWidth />
+            <TextField
+              id="name"
+              label="Name"
+              variant="outlined"
+              placeholder="Name"
+              onChange={handleChange}
+              fullWidth
+              autoFocus
+              required
+            />
           </Grid>
           <Grid item xs={6}>
-            <TextField id="email" label="Email" variant="outlined" placeholder="Email" fullWidth />
+            <TextField id="email" label="Email" variant="outlined" placeholder="Email" fullWidth required />
           </Grid>
         </Grid>
         <Grid container spacing={2}>
@@ -65,6 +73,7 @@ const Form = () => {
               rows={4}
               fullWidth
               multiline
+              required
             />
           </Grid>
         </Grid>
@@ -76,9 +85,8 @@ const Form = () => {
           </Grid>
         </Grid>
       </form>
-      <Spacer />
-      <Spacer />
-    </>
+      <Spacer height="8em" />
+    </Box>
   );
 };
 
