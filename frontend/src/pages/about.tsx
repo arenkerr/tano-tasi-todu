@@ -4,11 +4,9 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import { Container, Grid, Divider, Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Img from 'gatsby-image';
 
 import Hero from '../components/hero';
 import Description from '../components/description';
-import Footer from '../components/footer';
 import Spacer from '../components/spacer';
 import tTheme from '../theme';
 
@@ -76,9 +74,9 @@ const About = ({ data }) => {
       <Hero hero={about.hero} />
       <Container>
         <Description source={about.content.body} />
-        <Spacer />
+        <Spacer height="4em" />
         <Divider />
-        <Spacer />
+        <Spacer height="4em" />
         {people.map((person) => (
           <>
             <Grid container spacing={4}>
@@ -92,7 +90,7 @@ const About = ({ data }) => {
                 <Markdown children={person.bio} />
               </Grid>
             </Grid>
-            <Spacer />
+            <Spacer height="4em" />
           </>
         ))}
         <Grid container spacing={2}>
@@ -107,7 +105,7 @@ const About = ({ data }) => {
               size="large"
               color="primary"
               href="mailto:tanotasitodu@gmail.com"
-              target="_blank" 
+              target="_blank"
               rel="noreferrer noopener"
               className={classes.button}
             >
@@ -115,9 +113,8 @@ const About = ({ data }) => {
             </Button>
           </Grid>
         </Grid>
-        <Spacer />
+        <Spacer height="4em" />
       </Container>
-      <Footer />
     </Layout>
   );
 };

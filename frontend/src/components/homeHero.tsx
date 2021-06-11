@@ -14,7 +14,10 @@ const useStyles = makeStyles({
     backgroundAttachment: 'fixed',
     height: `calc(100vh - ${tTheme.size.appBar}px)`,
     [tTheme.theme.breakpoints.down('sm')]: {
-      height: `calc(100vh - ${tTheme.size.appBarMobile}px)`,
+      minHeight: `calc(100vh - ${tTheme.size.appBarMobile}px)`,
+    },
+    [tTheme.theme.breakpoints.down('xs')]: {
+      minHeight: '110vh',
     },
   },
   overlay: {
@@ -23,7 +26,7 @@ const useStyles = makeStyles({
     height: `calc(100vh - ${tTheme.size.appBar}px)`,
     width: '100%',
     [tTheme.theme.breakpoints.down('sm')]: {
-      height: `calc(100vh - ${tTheme.size.appBarMobile}px)`,
+      minHeight: `100%`,
     },
   },
   content: {
@@ -35,10 +38,13 @@ const useStyles = makeStyles({
     width: '100%',
     height: `calc(100vh - ${tTheme.size.appBar}px)`,
     textShadow: '1px 1px 17px #0000004f',
-    [tTheme.theme.breakpoints.down('sm')]: {
+    [tTheme.theme.breakpoints.down('xs')]: {
       alignItems: 'flex-start',
       marginTop: '2rem',
-      height: `calc(100vh - ${tTheme.size.appBarMobile}px)`,
+      minHeight: `100%`,
+    },
+    [tTheme.theme.breakpoints.down('md')]: {
+      alignItems: 'center',
     },
   },
   description: {
