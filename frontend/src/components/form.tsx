@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-
+import { navigate } from 'gatsby-link';
 import { Box, Grid, Button, TextField } from '@material-ui/core';
+
 import Spacer from './spacer';
 
 const useStyles = makeStyles({
@@ -21,24 +22,47 @@ const Form = () => {
     message: '',
   });
 
+  const encode = (data) => {
+    return Object.keys(data)
+      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
+  };
+
   const handleChange = (e) => {
-    console.log(e.target.id, e.target.value);
     setFormState({
       ...formState,
       [e.target.id]: e.target.value,
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
+    const form = e.target;
     e.preventDefault();
-    console.log(formState);
-    setStatus('Sending...');
-    return;
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...formState,
+      }),
+    })
+      .then(() => navigate(form.getAttribute('action')))
+      .catch((error) => alert(error));
   };
 
   return (
     <Box m={2}>
-      <form className={classes.root} name="contact" method="POST" data-netlify="true" action="/success">
+      <form
+        className={classes.root}
+        netlify-honeypot="bot-field"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        action="/success"
+        onSubmit={handleSubmit}
+      >
+        <input type="hidden" name="bot-field" />
         <input type="hidden" name="form-name" value="contact" />
         <Grid container spacing={2}>
           <Grid item md={6} xs={12}>
@@ -47,14 +71,22 @@ const Form = () => {
               label="Name"
               variant="outlined"
               placeholder="Name"
-              onChange={handleChange}
               fullWidth
               autoFocus
               required
+              onChange={handleChange}
             />
           </Grid>
           <Grid item md={6} xs={12}>
-            <TextField id="email" label="Email" variant="outlined" placeholder="Email" fullWidth required />
+            <TextField
+              id="email"
+              label="Email"
+              variant="outlined"
+              placeholder="Email"
+              fullWidth
+              required
+              onChange={handleChange}
+            />
           </Grid>
         </Grid>
         <Grid container spacing={2}>
@@ -68,6 +100,7 @@ const Form = () => {
               fullWidth
               multiline
               required
+              onChange={handleChange}
             />
           </Grid>
         </Grid>
