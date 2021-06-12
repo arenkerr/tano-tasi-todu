@@ -15,7 +15,6 @@ const useStyles = makeStyles({
 
 const Form = () => {
   const classes = useStyles();
-  const [status, setStatus] = useState('Submit');
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -37,7 +36,6 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     const form = e.target;
-    e.preventDefault();
 
     fetch('/', {
       method: 'POST',
@@ -49,6 +47,8 @@ const Form = () => {
     })
       .then(() => navigate(form.getAttribute('action')))
       .catch((error) => alert(error));
+
+    e.preventDefault();
   };
 
   return (
@@ -71,6 +71,8 @@ const Form = () => {
               label="Name"
               variant="outlined"
               placeholder="Name"
+              name="name"
+              type="text"
               fullWidth
               autoFocus
               required
@@ -83,6 +85,8 @@ const Form = () => {
               label="Email"
               variant="outlined"
               placeholder="Email"
+              name="email"
+              type="text"
               fullWidth
               required
               onChange={handleChange}
@@ -96,6 +100,8 @@ const Form = () => {
               label="Message"
               variant="outlined"
               placeholder="Message"
+              name="message"
+              type="text"
               rows={6}
               fullWidth
               multiline
@@ -107,7 +113,7 @@ const Form = () => {
         <Grid container spacing={4}>
           <Grid item md={6} xs={12}>
             <Button variant="contained" size="large" color="primary" type="submit">
-              {status}
+              Submit
             </Button>
           </Grid>
         </Grid>
