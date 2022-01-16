@@ -38,6 +38,7 @@ const query = graphql`
         description
         image {
           url
+          alternativeText
         }
       }
     }

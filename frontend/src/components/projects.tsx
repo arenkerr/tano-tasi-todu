@@ -37,7 +37,7 @@ const Projects = ({ projects }) => {
       {projects.map((project) => (
         <Grid container className={classes.grid} key={project.title}>
           <Grid item sm={4}>
-            <img src={project.image.url} alt={project.alternativeText} className={classes.image} />
+            <img src={project.image.url} alt={project.image.alternativeText} className={classes.image} />
           </Grid>
           <Grid item sm={8}>
             <Box padding={4}>
