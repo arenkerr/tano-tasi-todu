@@ -9,17 +9,17 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images`,
-      },
+        path: `${__dirname}/src/images`
+      }
     },
     {
       resolve: 'gatsby-source-strapi',
       options: {
         apiURL: process.env.API_URL || 'http://localhost:1337',
-        collectionTypes: ['page', 'people'],
+        collectionTypes: ['page', 'people', 'project'],
         singleTypes: ['homepage', 'global', 'about', 'footer'],
-        queryLimit: 1000,
-      },
+        queryLimit: 1000
+      }
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
@@ -32,10 +32,10 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/images/favicon.png',
-      },
+        icon: 'src/images/favicon.png'
+      }
     },
     'gatsby-plugin-offline',
-    'gatsby-plugin-material-ui',
-  ],
+    'gatsby-plugin-material-ui'
+  ]
 };

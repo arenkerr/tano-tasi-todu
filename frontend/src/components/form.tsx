@@ -52,74 +52,76 @@ const Form = () => {
   };
 
   return (
-    <Box m={2}>
-      <form
-        className={classes.root}
-        netlify-honeypot="bot-field"
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        action="/success"
-        onSubmit={handleSubmit}
-      >
-        <input type="hidden" name="bot-field" />
-        <input type="hidden" name="form-name" value="contact" />
-        <Grid container spacing={2}>
-          <Grid item md={6} xs={12}>
-            <TextField
-              id="name"
-              label="Name"
-              variant="outlined"
-              placeholder="Name"
-              name="name"
-              type="text"
-              fullWidth
-              autoFocus
-              required
-              onChange={handleChange}
-            />
+    <>
+      <Box m={2}>
+        <form
+          className={classes.root}
+          netlify-honeypot="bot-field"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          action="/success"
+          onSubmit={handleSubmit}
+        >
+          <input type="hidden" name="bot-field" />
+          <input type="hidden" name="form-name" value="contact" />
+          <Grid container spacing={2}>
+            <Grid item md={6} xs={12}>
+              <TextField
+                id="name"
+                label="Name"
+                variant="outlined"
+                placeholder="Name"
+                name="name"
+                type="text"
+                fullWidth
+                autoFocus
+                required
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextField
+                id="email"
+                label="Email"
+                variant="outlined"
+                placeholder="Email"
+                name="email"
+                type="text"
+                fullWidth
+                required
+                onChange={handleChange}
+              />
+            </Grid>
           </Grid>
-          <Grid item md={6} xs={12}>
-            <TextField
-              id="email"
-              label="Email"
-              variant="outlined"
-              placeholder="Email"
-              name="email"
-              type="text"
-              fullWidth
-              required
-              onChange={handleChange}
-            />
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                id="message"
+                label="Message"
+                variant="outlined"
+                placeholder="Message"
+                name="message"
+                type="text"
+                rows={6}
+                fullWidth
+                multiline
+                required
+                onChange={handleChange}
+              />
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <TextField
-              id="message"
-              label="Message"
-              variant="outlined"
-              placeholder="Message"
-              name="message"
-              type="text"
-              rows={6}
-              fullWidth
-              multiline
-              required
-              onChange={handleChange}
-            />
+          <Grid container spacing={4}>
+            <Grid item md={6} xs={12}>
+              <Button variant="contained" size="large" color="primary" type="submit">
+                Submit
+              </Button>
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid container spacing={4}>
-          <Grid item md={6} xs={12}>
-            <Button variant="contained" size="large" color="primary" type="submit">
-              Submit
-            </Button>
-          </Grid>
-        </Grid>
-      </form>
-      <Spacer height="8em" />
-    </Box>
+        </form>
+        <Spacer height="8em" />
+      </Box>
+    </>
   );
 };
 
