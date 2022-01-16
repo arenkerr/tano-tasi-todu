@@ -8,6 +8,7 @@ import Description from '../components/description';
 import Spacer from '../components/spacer';
 import HorizontalList from '../components/horizontalList';
 import Form from '../components/form';
+import Projects from '../components/projects';
 
 export const query = graphql`
   query PageQuery($slug: String!) {
@@ -33,12 +34,23 @@ export const query = graphql`
         metaDescription
       }
     }
+    allStrapiProject {
+      nodes {
+        title
+        description
+        image {
+          url
+          alternativeText
+        }
+      }
+    }
   }
 `;
 
 const Page = ({ data }) => {
   const page = data.strapiPage;
   const seo = data.strapiPage.seo;
+  const projects = data.allStrapiProject.nodes;
 
   return (
     <Layout seo={seo}>
@@ -46,8 +58,8 @@ const Page = ({ data }) => {
       <Container>{page.content && <Description source={page.content.body} />}</Container>
       <Spacer />
       {page.horizontalList && <HorizontalList list={page.horizontalList.listItem} />}
-      <Spacer />
       {page.slug === 'contact' && <Form />}
+      {page.slug === 'our-work' && <Projects projects={projects} />}
     </Layout>
   );
 };

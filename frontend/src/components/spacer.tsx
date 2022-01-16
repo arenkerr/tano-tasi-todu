@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
-    marginTop: ({ height }: SpacerProps) => (height ? height : '4em'),
-  },
+    paddingTop: ({ height }: SpacerProps) => (height ? height : '4em')
+  }
 });
 
 interface SpacerProps {
