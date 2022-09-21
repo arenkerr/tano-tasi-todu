@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Grid, Typography } from '@material-ui/core';
+import { Box, Button, Container, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Markdown from 'react-markdown';
 
@@ -20,8 +20,22 @@ const useStyles = makeStyles({
       minHeight: '110vh',
     },
   },
+  logoContainer: {
+    width: '100%',
+    maxHeight: 360,
+  },
+  logo: {
+    width: '65%',
+    [tTheme.theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
+    [tTheme.theme.breakpoints.down('xs')]: {
+      width: '100%',
+    },
+  },
   overlay: {
-    backgroundImage: (hero) => (hero.gradientOverlay ? hero.gradientOverlay : `linear-gradient(#00107dcc, #ffffff00)`),
+    backgroundImage: (hero) =>
+      hero.gradientOverlay ? hero.gradientOverlay : `linear-gradient(#00107dcc, #ffffff00)`,
     opacity: 0.65,
     height: `calc(100vh - ${tTheme.size.appBar}px)`,
     width: '100%',
@@ -70,21 +84,33 @@ const HomeHero = ({ hero }) => {
       <div className={classes.content}>
         <Container>
           <Grid container spacing={2}>
-            <Typography variant="h1" color="textSecondary">
-              {hero.title}
-            </Typography>
+            <div className={classes.logoContainer}>
+              <img src={hero.logo.url} alt={hero.logo.alternativeText} className={classes.logo} />
+            </div>
             <Grid item xs={12} className={classes.description}>
               <Markdown children={hero.description} />
             </Grid>
           </Grid>
           <Grid container spacing={2}>
             <Grid item md={3} xs={12}>
-              <Button variant="contained" size="large" color="primary" href="/about" className={classes.button}>
+              <Button
+                variant="contained"
+                size="large"
+                color="primary"
+                href="/about"
+                className={classes.button}
+              >
                 About Us
               </Button>
             </Grid>
             <Grid item md={3} xs={12}>
-              <Button variant="contained" size="large" color="primary" href="/our-work" className={classes.button}>
+              <Button
+                variant="contained"
+                size="large"
+                color="primary"
+                href="/our-work"
+                className={classes.button}
+              >
                 Our Work
               </Button>
             </Grid>

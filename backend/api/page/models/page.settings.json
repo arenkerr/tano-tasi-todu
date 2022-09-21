@@ -36,6 +36,11 @@
       "type": "component",
       "repeatable": false,
       "component": "sections.horizontal-list"
+    },
+    "dropdownMenuLinks": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.dropdown-menu-links"
     }
   }
 }
