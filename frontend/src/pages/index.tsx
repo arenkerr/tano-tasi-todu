@@ -6,12 +6,12 @@ import HomeHero from '../components/homeHero';
 import Projects from '../components/projects';
 
 const IndexPage = () => {
-  const data = useStaticQuery(query);
+  const { strapiHomepage, allStrapiProject, strapiGlobal } = useStaticQuery(query);
 
   return (
-    <Layout seo={data.strapiHomepage.seo}>
-      <HomeHero hero={data.strapiHomepage.hero} />
-      <Projects projects={data.allStrapiProject.nodes} />
+    <Layout seo={strapiHomepage.seo}>
+      <HomeHero hero={{ ...strapiHomepage.hero, logo: { ...strapiGlobal.logo } }} />
+      <Projects projects={allStrapiProject.nodes} />
     </Layout>
   );
 };
@@ -40,6 +40,12 @@ const query = graphql`
           url
           alternativeText
         }
+      }
+    }
+    strapiGlobal {
+      logo {
+        url
+        alternativeText
       }
     }
   }

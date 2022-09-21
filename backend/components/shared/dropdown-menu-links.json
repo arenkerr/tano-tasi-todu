@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_dropdown_menu_links",
+  "info": {
+    "name": "dropdownMenuLinks",
+    "icon": "bars"
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
+    }
+  }
+}

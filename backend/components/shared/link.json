@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_links",
+  "info": {
+    "name": "link",
+    "icon": "globe",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "external": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

@@ -8,7 +8,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import tTheme from '../theme';
 import AppMenu from './appMenu';
 
-enum MenuTypes {
+export enum MenuTypes {
   DESKTOP = 'desktop',
   MOBILE = 'mobile',
 }
@@ -36,7 +36,7 @@ const useStyles = makeStyles({
     backgroundImage: 'linear-gradient(0deg, #282963, #007d73)',
     zIndex: 10000,
     position: 'fixed',
-    width: '100vh',
+    width: '100vw',
     height: '100vh',
     borderRadius: 0,
     top: 0,
@@ -84,6 +84,13 @@ const Nav = () => {
                   title
                 }
                 slug
+                dropdownMenuLinks {
+                  link {
+                    url
+                    label
+                    external
+                  }
+                }
               }
             }
           }
@@ -102,7 +109,11 @@ const Nav = () => {
           <>
             {menuOpen && (
               <div className={classes.mobileMenu}>
-                <IconButton className={classes.mobileMenuIcon} aria-controls="menu" onClick={handleClose}>
+                <IconButton
+                  className={classes.mobileMenuIcon}
+                  aria-controls="menu"
+                  onClick={handleClose}
+                >
                   <CloseIcon />
                 </IconButton>
                 <AppMenu links={allPages} type={MenuTypes.MOBILE} />
